@@ -1,0 +1,38 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 1rem;
+}
+
+.card h2 {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.poster__container {
+    position: relative;
+    height: 400px;
+    width: 300px;
+    object-fit: cover;
+}
+
+.card small {
+    color: var(--clr-gray);
+}
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rating span {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+.icon {
+    font-size: 1.2rem;
+    color: yellow;
+}
