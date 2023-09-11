@@ -1,4 +1,4 @@
-export interface GameCard {
+export interface MovieCard {
     backdrop_path: string
     poster_path: string
     original_title: string
@@ -7,6 +7,6 @@ export interface GameCard {
     release_date: string
 }
 
-export interface GamesList {
-    results: GameCard[]
+export interface MoviesList {
+    results: MovieCard[]
 }

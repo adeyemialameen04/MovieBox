@@ -11,10 +11,11 @@ const Navbar = () => {
     nav__container,
     right,
     input,
+    nav,
   } = styles;
 
   return (
-    <nav>
+    <nav className={nav}>
       <div className={`container ${nav__container}`}>
         <div className={logo__container}>
           <div className={logo}>

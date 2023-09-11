@@ -1,0 +1,16 @@
+.featured__section {
+    margin-top: 3rem;
+}
+
+.featured__section h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--clr-black);
+}
+
+.movieList__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    gap: 2rem;
+}

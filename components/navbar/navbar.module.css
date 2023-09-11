@@ -1,3 +1,10 @@
+.nav {
+    /* position: fixed; */
+    /* top: 0; */
+    /* width: 100vw; */
+    /* z-index: 10; */
+}
+
 .nav__container {
     padding-block: 1rem;
     display: flex;
@@ -9,6 +16,11 @@
     display: flex;
     gap: .7rem;
     align-items: center;
+}
+
+.logo__container span {
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .logo {
@@ -27,14 +39,54 @@
     gap: .6rem;
 }
 
+.right button {
+    color: var(--clr-white);
+    background-color: var(--clr-pink);
+    font-size: 1.8rem;
+    border: none;
+    height: 35px;
+    width: 35px;
+    display: grid;
+    place-content: center;
+    border-radius: .375rem;
+}
+
+.right p {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
 .input__container {
     width: 50%;
 }
 
 .input {
     width: 100%;
+    outline: none;
     height: 45px;
-    border: 1px solid var(--clr-gray);
+    border: 2px solid var(--clr-white);
+    background-color: transparent;
     border-radius: .375rem;
     padding-left: .6rem;
+    font-size: 1.2rem;
+    color: var(--clr-white);
+}
+
+.input::placeholder {
+    color: var(--clr-white);
+}
+
+@media(max-width:780px) {
+    .input__container {
+        background-color: red;
+        width: 100%;
+    }
+
+    .nav__container {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.8rem;
+    }
+
+    .nav__container {}
 }

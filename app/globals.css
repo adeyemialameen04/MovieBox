@@ -40,6 +40,8 @@
   --clr-white: #fff;
   --clr-black: #000;
   --clr-gray: #9ca3af;
+  --clr-pink: #be123c;
+  --tw-ring-color: rgba(59, 130, 246, .5);
 
   --transition: all 350ms ease-in-out;
   --container-md: 94%;
@@ -66,6 +68,7 @@ body {
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  color: var(--clr-white);
 }
 
 /* A elements that don't have a class get default styles */
@@ -84,6 +87,10 @@ svg {
 .container {
   width: var(--container-md);
   margin: 0 auto;
+}
+
+.position-relative {
+  padding-top: 6rem;
 }
 
 @media (min-width:780px) {

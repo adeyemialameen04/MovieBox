@@ -1,11 +1,11 @@
 .cardItem {
     display: flex;
     flex-direction: column;
-    width: fit-content;
     gap: .6rem;
+    color: var(--clr-black);
 }
 
-.cardItem h2 {
+.cardItem h3 {
     font-size: 1.3rem;
     font-weight: 500;
 }
@@ -13,12 +13,14 @@
 .poster__container {
     position: relative;
     height: 400px;
-    width: 300px;
+    overflow: hidden;
     object-fit: cover;
 }
 
 .card small {
-    color: var(--clr-gray);
+    /* color: #e5e7eb; */
+    color: red;
+    /* color: var(--clr-gray); */
 }
 
 .rating {
