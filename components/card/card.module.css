@@ -1,12 +1,12 @@
-.card {
+.cardItem {
     display: flex;
     flex-direction: column;
     width: fit-content;
-    gap: 1rem;
+    gap: .6rem;
 }
 
-.card h2 {
-    font-size: 1.6rem;
+.cardItem h2 {
+    font-size: 1.3rem;
     font-weight: 500;
 }
 

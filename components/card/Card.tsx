@@ -3,28 +3,33 @@ import styles from "./card.module.css";
 import Test from "/public/testimage.jpg";
 import { FaImdb } from "react-icons/fa";
 import { GiTomato } from "react-icons/gi";
-const Card = () => {
-  const { poster__container, rating, card, icon, genres } = styles;
+import { GameCard } from "@/utils/interfaces";
+import { IMAGE_BASE_URL } from "@/utils/services";
+import { formatDate } from "@/utils/constants";
+
+type GameCardProps = {
+  card: GameCard;
+};
+
+const Card = ({ card }: GameCardProps) => {
+  const { poster__container, rating, cardItem, icon, genres } = styles;
+
   return (
-    <article className={card}>
+    <article data-testid="movie-card" className={cardItem}>
       <div className={poster__container}>
-        <Image fill alt="" src={Test} />
+        <Image
+          data-testid="movie-poster"
+          fill
+          alt=""
+          src={`${IMAGE_BASE_URL}/${card.poster_path}`}
+        />
       </div>
-      <small>USA, 2016 - CURRENT</small>
-      <h2>Stranger Things</h2>
-      <div className={rating}>
-        <span>
-          <FaImdb className={icon} />
-          86 / 100
-        </span>
-        <span>
-          <GiTomato className={icon} />
-          97%
-        </span>
-      </div>
-      <div className={genres}>
-        <small>Action, Adventure, Horror</small>
-      </div>
+      <h2 data-testid="movie-title">
+        {card.original_title ?? card.original_name}
+      </h2>
+      <small data-testid="movie-release-date">
+        {formatDate(card.release_date)}
+      </small>
     </article>
   );
 };
