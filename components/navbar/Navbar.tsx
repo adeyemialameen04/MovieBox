@@ -11,17 +11,21 @@ const Navbar = () => {
     nav__container,
     right,
     input,
+    left,
     nav,
+    left__sign__in,
   } = styles;
-
   return (
     <nav className={nav}>
       <div className={`container ${nav__container}`}>
-        <div className={logo__container}>
-          <div className={logo}>
-            <Image alt="" fill src={Logo} />
+        <div className={left}>
+          <div className={logo__container}>
+            <div className={logo}>
+              <Image alt="" fill src={Logo} />
+            </div>
+            <span>MovieBox</span>
           </div>
-          <span>MovieBox</span>
+          <div className={left__sign__in}>Sign in</div>
         </div>
         <div className={input__container}>
           <input

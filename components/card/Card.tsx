@@ -20,6 +20,7 @@ const Card = ({ card }: GameCardProps) => {
           fill
           alt=""
           src={`${IMAGE_BASE_URL}/${card.poster_path}`}
+          objectFit="cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>

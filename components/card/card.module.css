@@ -17,12 +17,6 @@
     object-fit: cover;
 }
 
-.card small {
-    /* color: #e5e7eb; */
-    color: red;
-    /* color: var(--clr-gray); */
-}
-
 .rating {
     display: flex;
     justify-content: space-between;

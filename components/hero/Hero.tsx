@@ -19,9 +19,11 @@ const Hero = async () => {
   return (
     <>
       <section
-        style={{
-          backgroundImage: `url(${IMAGE_BASE_URL}${heroData?.backdrop_path})`,
-        }}
+        style={
+          {
+            // backgroundImage: `url(${IMAGE_BASE_URL}${heroData?.backdrop_path})`,
+          }
+        }
         className={hero__section}
       >
         <Navbar />

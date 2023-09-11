@@ -76,10 +76,15 @@
     color: var(--clr-white);
 }
 
+.left__sign__in {
+    display: none;
+}
+
 @media(max-width:780px) {
-    .input__container {
-        background-color: red;
+
+    /* .input__container {
         width: 100%;
+        order: 3;
     }
 
     .nav__container {
@@ -88,5 +93,46 @@
         gap: 0.8rem;
     }
 
-    .nav__container {}
+    .right {
+        align-self: flex-end;
+        order: 2;
+    }
+
+    .nav__container {} */
+    .input__container {
+        width: 100%;
+        order: 3;
+    }
+
+    .nav__container {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.8rem;
+    }
+
+    .right {
+        align-self: flex-end;
+        order: 2;
+    }
+
+    .right button {
+        display: none;
+    }
+
+    .left {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .right p {
+        display: none;
+    }
+
+    .left__sign__in {
+        display: block;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
 }
