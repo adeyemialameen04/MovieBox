@@ -4,6 +4,7 @@ import Test from "/public/testimage.jpg";
 import { MovieCard } from "@/utils/interfaces";
 import { IMAGE_BASE_URL } from "@/utils/services";
 import { formatDate } from "@/utils/constants";
+import Link from "next/link";
 
 type GameCardProps = {
   card: MovieCard;
@@ -13,7 +14,11 @@ const Card = ({ card }: GameCardProps) => {
   const { poster__container, rating, cardItem, icon, genres } = styles;
 
   return (
-    <article data-testid="movie-card" className={cardItem}>
+    <Link
+      href={`/movies/${card.id}`}
+      data-testid="movie-card"
+      className={cardItem}
+    >
       <div className={poster__container}>
         <Image
           data-testid="movie-poster"
@@ -30,7 +35,7 @@ const Card = ({ card }: GameCardProps) => {
       <small data-testid="movie-release-date">
         {formatDate(card.release_date)}
       </small>
-    </article>
+    </Link>
   );
 };
 
