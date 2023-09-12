@@ -16,6 +16,8 @@ const getMovieDetailsWithMovieId = async (id: number) => {
   return data;
 };
 
+const getMovieDetailsWithImdbId = async (id: string) => {};
+
 const MovieDetailsPage = async ({ params }: MovieDetailsPageProps) => {
   const { main } = styles;
   const movie = await getMovieDetailsWithMovieId(params.id);
@@ -23,7 +25,7 @@ const MovieDetailsPage = async ({ params }: MovieDetailsPageProps) => {
   return (
     <main className={main}>
       <Sidebar />
-      <MovieDetail />
+      <MovieDetail movie={movie} />
     </main>
   );
 };

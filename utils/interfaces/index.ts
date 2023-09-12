@@ -16,4 +16,9 @@ export interface MovieDetail {
         { id: number, name: string }
     ]
     homepage: string
+    title: string
+    runtime: number
+    release_date: string
+    backdrop_path: string
+    overview: string
 }

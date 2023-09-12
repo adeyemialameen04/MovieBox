@@ -1,8 +1,15 @@
 import Image from "next/image";
 import styles from "./movieDetail.module.css";
 import Test from "/public/Rectangle 29.png";
+import { MovieDetail } from "@/utils/interfaces";
+import { formatToUtcDate } from "@/utils/constants";
+import { IMAGE_BASE_URL } from "@/utils/services";
 
-const MovieDetail = () => {
+type MovieDetailProps = {
+  movie: MovieDetail;
+};
+
+const MovieDetail = ({ movie }: MovieDetailProps) => {
   const {
     main__details,
     main__container,
@@ -18,38 +25,30 @@ const MovieDetail = () => {
     <section className={main__details}>
       <div className={`${main__container}`}>
         <div className={img__container}>
-          <Image fill alt="" src={Test} />
+          <Image fill alt="" src={`${IMAGE_BASE_URL}${movie.backdrop_path}`} />
         </div>
         <div className={info}>
           <div>
             <div className={minor__info}>
-              <p>
-                Top Gun: Maverick <span></span>
+              <p data-testid="movie-title">
+                {movie.title} <span></span>
               </p>
-              <p>
-                2023 <span></span>
+              <p data-testid="movie-release-date">
+                {formatToUtcDate(movie.release_date)} <span></span>
               </p>
-              <p>
-                PG-13 <span></span>
-              </p>
-              <p>
-                2h 10m <span></span>
+              <p data-testid=" movie-runtime">
+                {movie.runtime}m <span></span>
               </p>
             </div>
             <div className={genres}>
-              <span>Action</span>
-              <span>Drama</span>
+              {movie.genres.map((genre) => (
+                <span>{genre.name}</span>
+              ))}
             </div>
           </div>
-          <div className={rating}></div>
         </div>
-        <div className={overview}>
-          Finding himself in a new era, and approaching retirement, Indy
-          wrestles with fitting into a world that seems to have outgrown him.
-          But as the tentacles of an all-too-familiar evil return in the form of
-          an old rival, Indy must don his hat and pick up his whip once more to
-          make sure an ancient and powerful artifact does not fall into the
-          wrong hands.
+        <div data-testid="movie-overview" className={overview}>
+          {movie.overview}
         </div>
       </div>
     </section>
