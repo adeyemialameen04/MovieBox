@@ -3,6 +3,7 @@ import styles from "./sidebar.module.css";
 import Image from "next/image";
 import Logo from "/public/Logo.png";
 import { Poppins } from "next/font/google";
+import Link from "next/link";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -19,10 +20,10 @@ const Sidebar = () => {
       </div>
       <div className={links}>
         {sidebar.map((sidebar, index) => (
-          <article key={index}>
+          <Link href="/" key={index}>
             <Image height={38} width={38} alt="" src={sidebar.img} />
             <span>{sidebar.title}</span>
-          </article>
+          </Link>
         ))}
       </div>
     </aside>

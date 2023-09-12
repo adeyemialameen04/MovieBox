@@ -41,8 +41,8 @@ const MovieDetail = ({ movie }: MovieDetailProps) => {
               </p>
             </div>
             <div className={genres}>
-              {movie.genres.map((genre) => (
-                <span>{genre.name}</span>
+              {movie.genres.map((genre, index) => (
+                <span key={index}>{genre.name}</span>
               ))}
             </div>
           </div>

@@ -28,14 +28,15 @@
     place-content: center;
 }
 
-.aside article {
+.aside a {
     display: flex;
     align-items: center;
     gap: .7rem;
     padding-block: .5rem;
+    text-decoration: none;
 }
 
-.aside article span {
+.aside a span {
     font-size: 1rem;
     font-weight: 400;
     color: #666666;
