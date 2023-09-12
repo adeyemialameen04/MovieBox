@@ -93,6 +93,13 @@ svg {
   padding-top: 6rem;
 }
 
+.center {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
 @media (min-width:780px) {
   .container {
     width: var(--container-lg);
