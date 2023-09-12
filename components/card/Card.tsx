@@ -20,9 +20,8 @@ const Card = ({ card }: GameCardProps) => {
         <Image
           data-testid="movie-poster"
           fill
-          alt=""
+          alt={`${card.name} Image`}
           src={`${IMAGE_BASE_URL}/${card.poster_path}`}
-          objectFit="cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
@@ -31,11 +30,13 @@ const Card = ({ card }: GameCardProps) => {
         favouriteBtn={favouriteBtn}
         favouriteIcon={favouriteIcon}
       />
-      <h3 data-testid="movie-title">{card.title ?? card.name}</h3>
-      <small data-testid="movie-release-date">
-        {formatDate(card.release_date)}
-      </small>
-      <Link href={`/movies/${card.id}`}>Continue</Link>
+      <div>
+        <h3 data-testid="movie-title">{card.title ?? card.name}</h3>
+        <small data-testid="movie-release-date">
+          {formatDate(card.release_date)}
+        </small>
+        <Link href={`/movies/${card.id}`}>Continue</Link>
+      </div>
     </article>
   );
 };

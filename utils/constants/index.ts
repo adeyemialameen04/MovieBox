@@ -17,7 +17,6 @@ export const formatDate = (inputDate: string) => {
     return formattedDate
 }
 
-
 export const formatToUtcDate = (inputDateStr: string) => {
     const inputDate = new Date(inputDateStr)
 
@@ -30,4 +29,11 @@ export const formatToUtcDate = (inputDateStr: string) => {
 
     const formattedDate = utcDate.toISOString()
     return formattedDate
+}
+
+export const shortenText = (text: string, maxWords: number) => {
+    if (text.length > maxWords) {
+        return text.slice(0, maxWords) + " " + "..."
+    }
+    return text
 }

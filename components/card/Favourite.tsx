@@ -44,11 +44,10 @@ const Favourite = ({ favouriteBtn, favouriteIcon, active }: FavouriteProps) => {
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
-        closeOnClick
+        // closeOnClick
         rtl={false}
         pauseOnFocusLoss
         draggable
-        pauseOnHover
         theme="light"
       />
       <ToastContainer />

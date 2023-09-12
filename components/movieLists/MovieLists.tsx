@@ -8,7 +8,7 @@ const getTrending = async () => {
   const response = await fetch(TRENDING_URL, options);
   const data: MoviesList = await response.json();
   const results = data.results;
-  console.log(results);
+  // console.log(results);
   return results;
 };
 

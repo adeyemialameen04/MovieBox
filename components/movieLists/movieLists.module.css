@@ -10,6 +10,7 @@
 }
 
 .movieList__container {
+    width: 90%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
     gap: 2rem;

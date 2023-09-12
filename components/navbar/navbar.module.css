@@ -3,6 +3,7 @@
     /* top: 0; */
     /* width: 100vw; */
     /* z-index: 10; */
+    margin-top: 0;
 }
 
 .nav__container {
@@ -81,24 +82,6 @@
 }
 
 @media(max-width:780px) {
-
-    /* .input__container {
-        width: 100%;
-        order: 3;
-    }
-
-    .nav__container {
-        flex-direction: column;
-        align-items: start;
-        gap: 0.8rem;
-    }
-
-    .right {
-        align-self: flex-end;
-        order: 2;
-    }
-
-    .nav__container {} */
     .input__container {
         width: 100%;
         order: 3;
