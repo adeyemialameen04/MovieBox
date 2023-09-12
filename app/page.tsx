@@ -1,11 +1,11 @@
 import styles from "./page.module.css";
 import Hero from "@/components/hero/Hero";
 import MovieLists from "@/components/movieLists/MovieLists";
-import Loading from "./loading";
 
 export default async function Home() {
+  const { home__main } = styles;
   return (
-    <main>
+    <main className={home__main}>
       <Hero />
       <MovieLists />
     </main>
