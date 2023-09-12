@@ -1,8 +1,8 @@
 import Image from "next/image";
 import styles from "./movieDetail.module.css";
-import Test from "/public/Rectangle 29.png";
 import { MovieDetail } from "@/utils/interfaces";
-import { formatToUtcDate } from "@/utils/constants";
+import { formatDate, formatToUtcDate } from "@/utils/constants";
+import { FaWandMagic, FaFilm } from "react-icons/fa6";
 import { IMAGE_BASE_URL } from "@/utils/services";
 
 type MovieDetailProps = {
@@ -14,12 +14,18 @@ const MovieDetail = ({ movie }: MovieDetailProps) => {
     main__details,
     main__container,
     img__container,
-    minor__info,
-    rating,
-    genres,
-    info,
     overview,
+    grid,
+    left,
+    right,
+    info,
+    genres,
+    bullet,
+    minor__info,
+    best,
   } = styles;
+
+  console.log(movie);
 
   return (
     <section className={main__details}>
@@ -27,28 +33,55 @@ const MovieDetail = ({ movie }: MovieDetailProps) => {
         <div className={img__container}>
           <Image fill alt="" src={`${IMAGE_BASE_URL}${movie.backdrop_path}`} />
         </div>
-        <div className={info}>
-          <div>
-            <div className={minor__info}>
-              <p data-testid="movie-title">
-                {movie.title} <span></span>
-              </p>
-              <p data-testid="movie-release-date">
-                {formatToUtcDate(movie.release_date)} <span></span>
-              </p>
-              <p data-testid=" movie-runtime">
-                {movie.runtime}m <span></span>
-              </p>
+        <div className={grid}>
+          <div className={left}>
+            <div className={info}>
+              <div>
+                <p>
+                  <span className={bullet}></span>
+                  {movie.title}
+                </p>
+                <p>
+                  <span className={bullet}></span>
+                  {formatToUtcDate(movie.release_date)}
+                </p>
+                <p></p>
+              </div>
+              <div className={genres}>
+                {movie.genres.map((genre, index) => (
+                  <span key={index}>{genre.name}</span>
+                ))}
+              </div>
             </div>
-            <div className={genres}>
-              {movie.genres.map((genre, index) => (
-                <span key={index}>{genre.name}</span>
-              ))}
+            <div className={overview}>{movie.overview}</div>
+            <div className={minor__info}>
+              <p>
+                Tagline: <span>{movie.tagline}</span>
+              </p>
+              <p>
+                Status:
+                <span>
+                  {movie.status === "Released" ? "Released" : "Not Released"}
+                </span>
+              </p>
             </div>
           </div>
-        </div>
-        <div data-testid="movie-overview" className={overview}>
-          {movie.overview}
+          <div className={right}>
+            <button>
+              <FaWandMagic />
+              See Showtimes
+            </button>
+            <button>
+              <FaFilm />
+              More Watch Options
+            </button>
+            <div className={best}>
+              <div></div>
+              <div></div>
+              <div></div>
+              <p>Best Movies in September</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

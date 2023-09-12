@@ -21,4 +21,6 @@ export interface MovieDetail {
     release_date: string
     backdrop_path: string
     overview: string
+    tagline: string
+    status: string
 }

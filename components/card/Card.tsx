@@ -35,7 +35,7 @@ const Card = ({ card }: GameCardProps) => {
         <small data-testid="movie-release-date">
           {formatDate(card.release_date)}
         </small>
-        <Link href={`/movies/${card.id}`}>Continue</Link>
+        <Link href={`/movies/${card.id}`}>Continue to details</Link>
       </div>
     </article>
   );

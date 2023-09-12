@@ -11,20 +11,23 @@ const poppins = Poppins({
 });
 
 const Sidebar = () => {
-  const { aside, links, logo__container } = styles;
+  const { aside, links, logo__container, titleText, icon } = styles;
   return (
     <aside className={`${aside} ${poppins.className}`}>
       <div className={logo__container}>
-        <Image src={Logo} alt="" height={60} width={60} objectFit="cover" />
-        <p>MovieBox</p>
+        <Image src={Logo} alt="" />
+        <p className={titleText}>MovieBox</p>
       </div>
       <div className={links}>
-        {sidebar.map((sidebar, index) => (
-          <Link href="/" key={index}>
-            <Image height={38} width={38} alt="" src={sidebar.img} />
-            <span>{sidebar.title}</span>
-          </Link>
-        ))}
+        {sidebar.map((sidebar, index) => {
+          const { icon: IconComponent, title, link } = sidebar;
+          return (
+            <Link href={link} key={index}>
+              <IconComponent className={icon} />
+              <span className={titleText}>{title}</span>
+            </Link>
+          );
+        })}
       </div>
     </aside>
   );

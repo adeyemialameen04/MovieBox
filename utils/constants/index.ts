@@ -37,3 +37,9 @@ export const shortenText = (text: string, maxWords: number) => {
     }
     return text
 }
+
+export const convertToMilliseconds = (dateText: string) => {
+    const date = new Date(dateText)
+    const milliseconds = date.getTime()
+    return milliseconds
+}
