@@ -13,7 +13,8 @@ type FavouriteProps = {
 const Favourite = ({ favouriteBtn, favouriteIcon, active }: FavouriteProps) => {
   const [isFavorited, setIsFavorited] = useState(false);
 
-  const handleFavouriteClick = () => {
+  const handleFavouriteClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
     setIsFavorited(!isFavorited);
 
     toast.success(

@@ -1,23 +1,29 @@
-import HomeImg from "/public/Home.png"
-import MovieImg from "/public/Movie Projector.png"
-import SeriesImg from "/public/TV Show.png"
-import UpcomingImg from "/public/Calendar.png"
+import {
+    RiHome2Line,
+    RiMovie2Line,
+    RiTv2Line,
+    RiCalendar2Line,
+} from "react-icons/ri";
 
 export const sidebar = [
     {
         title: "Home",
-        img: HomeImg
+        icon: RiHome2Line,
+        link: "/"
     },
     {
         title: "Movies",
-        img: MovieImg
+        icon: RiMovie2Line,
+        link: "#"
     },
     {
         title: "TV Series",
-        img: SeriesImg
+        icon: RiTv2Line,
+        link: "#"
     },
     {
         title: "Upcoming",
-        img: UpcomingImg
+        icon: RiCalendar2Line,
+        link: "#"
     },
 ]

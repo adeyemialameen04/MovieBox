@@ -1,14 +1,14 @@
 .main {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 3.5fr;
     gap: 1rem;
     padding-bottom: 6rem;
 }
 
-@media(min-width:980px) {
+@media(max-width:380px) {
     .main {
         display: grid;
-        grid-template-columns: 1fr 3.5fr;
+        grid-template-columns: 1fr 2.5fr;
         gap: 1rem;
     }
 }
