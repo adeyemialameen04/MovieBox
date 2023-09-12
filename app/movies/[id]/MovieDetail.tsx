@@ -23,10 +23,18 @@ const MovieDetail = () => {
         <div className={info}>
           <div>
             <div className={minor__info}>
-              <p>Top Gun: Maverick</p>
-              <p>2023</p>
-              <p>PG-13</p>
-              <p>2h 10m</p>
+              <p>
+                Top Gun: Maverick <span></span>
+              </p>
+              <p>
+                2023 <span></span>
+              </p>
+              <p>
+                PG-13 <span></span>
+              </p>
+              <p>
+                2h 10m <span></span>
+              </p>
             </div>
             <div className={genres}>
               <span>Action</span>
@@ -40,8 +48,8 @@ const MovieDetail = () => {
           wrestles with fitting into a world that seems to have outgrown him.
           But as the tentacles of an all-too-familiar evil return in the form of
           an old rival, Indy must don his hat and pick up his whip once more to
-          make sure an ancient and powerful artifact doesn't fall into the wrong
-          hands.
+          make sure an ancient and powerful artifact does not fall into the
+          wrong hands.
         </div>
       </div>
     </section>

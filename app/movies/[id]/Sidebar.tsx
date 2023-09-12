@@ -18,8 +18,8 @@ const Sidebar = () => {
         <p>MovieBox</p>
       </div>
       <div className={links}>
-        {sidebar.map((sidebar) => (
-          <article>
+        {sidebar.map((sidebar, index) => (
+          <article key={index}>
             <Image height={38} width={38} alt="" src={sidebar.img} />
             <span>{sidebar.title}</span>
           </article>

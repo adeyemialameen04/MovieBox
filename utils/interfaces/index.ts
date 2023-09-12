@@ -10,3 +10,10 @@ export interface MovieCard {
 export interface MoviesList {
     results: MovieCard[]
 }
+
+export interface MovieDetail {
+    genres: [
+        { id: number, name: string }
+    ]
+    homepage: string
+}
