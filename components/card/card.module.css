@@ -3,11 +3,13 @@
     flex-direction: column;
     gap: .6rem;
     color: var(--clr-black);
+    text-decoration: none;
 }
 
 .cardItem h3 {
     font-size: 1.3rem;
     font-weight: 500;
+    color: #111827;
 }
 
 .poster__container {
@@ -20,6 +22,10 @@
 .rating {
     display: flex;
     justify-content: space-between;
+}
+
+.cardItem small {
+    color: #9CA3AF;
 }
 
 .rating span {

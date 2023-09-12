@@ -28,9 +28,15 @@ const Hero = async () => {
       >
         <Navbar />
         <div className={`${hero__container}`}>
-          <h1>{heroData?.original_title}</h1>
+          {/* <h1>{heroData?.original_title}</h1> */}
+          <h1>John Wick 3 : Parabellum</h1>
           <div className="rating"></div>
-          <p>{heroData?.overview}</p>
+          {/* <p>{heroData?.overview}</p> */}
+          <p>
+            John Wick is on the run after killing a member of the international
+            assassins guild, and with a $14 million price tag on his head, he is
+            the target of hit men and women everywhere.
+          </p>
           <button>Watch Trailer</button>
         </div>
       </section>
