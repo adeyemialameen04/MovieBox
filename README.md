@@ -61,5 +61,6 @@ To run this project locally, follow these steps:
 
    ```bash
    git clone https://github.com/your-username/moviebox.git
-
+   ```
+   
    cd moviebox
