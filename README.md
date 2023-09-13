@@ -4,11 +4,14 @@ MovieBox is a web application built with Next.js 13 and TypeScript that allows u
 
 ![MovieBox Screenshot](./screenshot.png)
 
-## Features
+## Current Features
 
-- View upcoming movies.
 - Search for movies by title.
 - View movie details, including the title, overview, release date, and more.
+- Watch selected movie trailer.
+
+## Future Features
+- View upcoming movies.
 - Watch movie trailers.
 
 ## Technologies Used
@@ -41,9 +44,9 @@ To run this project locally, follow these steps:
    ```
 
 4. Set up your TMDB API key:
-Visit the TMDB API website to obtain an API key.
-Create a .env.local file in the root directory of your project.
-Add your API key to the .env.local file:   
+- Visit the TMDB API website to obtain an API key.
+- Create a .env.local file in the root directory of your project.
+- Add your API key to the .env.local file:   
 ```env
 
 TMDB_API_KEY=your_api_key_here
@@ -80,6 +83,3 @@ Contributions are welcome! If you would like to contribute to MovieBox, please f
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-Please replace `"https://github.com/your-username/moviebox.git"` in the cloning instructions with the actual URL of your project's Git repository, and ensure that you replace `"your_api_key_here"` with your actual TMDB API key in the `.env.local` file.
