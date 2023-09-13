@@ -45,7 +45,10 @@ const MovieDetail = ({ movie }: MovieDetailProps) => {
                   <span className={bullet}></span>
                   {formatToUtcDate(movie.release_date)}
                 </p>
-                <p></p>
+                <p>
+                  <span className={bullet}></span>
+                  {movie.runtime} minutes
+                </p>
               </div>
               <div className={genres}>
                 {movie.genres.map((genre, index) => (
@@ -59,7 +62,7 @@ const MovieDetail = ({ movie }: MovieDetailProps) => {
                 Tagline: <span>{movie.tagline}</span>
               </p>
               <p>
-                Status:
+                Status:{" "}
                 <span>
                   {movie.status === "Released" ? "Released" : "Not Released"}
                 </span>
