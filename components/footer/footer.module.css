@@ -1,0 +1,38 @@
+.footer {
+    padding-block: 1.5rem;
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.footer__container>div {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+.socials {
+    color: #111827;
+    font-size: 1.3rem;
+}
+
+.terms {
+    color: #111827;
+    font-weight: 500;
+}
+
+.copyright {
+    color: #6B7280;
+    font-size: 0.9rem;
+}
+
+@media (max-width:400px) {
+    .terms {
+        flex-direction: column;
+    }
+}
