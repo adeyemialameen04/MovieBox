@@ -1,4 +1,10 @@
-import { IMAGE_BASE_URL, TRENDING_URL, options } from "@/utils/services";
+import {
+  IMAGE_BASE_URL,
+  TOP_RATED_URL,
+  UPCOMING_URL,
+  getHeroTrailer,
+  options,
+} from "@/utils/services";
 import styles from "./hero.module.css";
 import { FaImdb } from "react-icons/fa";
 import { GiTomato } from "react-icons/gi";
@@ -22,17 +28,20 @@ const getHeroMovie = async () => {
       cache: "no-store",
     },
   };
-  const randomMovie = Math.floor(Math.random() * 10) + 1;
-  const response = await fetch(TRENDING_URL, passing);
+  const randomMovie = Math.floor(Math.random() * 15) + 1;
+  const response = await fetch(UPCOMING_URL, passing);
   const data = await response.json();
   const results = data.results;
   return results[randomMovie];
 };
 
 const Hero = async () => {
-  const heroData: MovieCard = await getHeroMovie();
-
   const { hero__container, hero__section } = styles;
+  const heroData: MovieCard = await getHeroMovie();
+  const heroTrailer = await getHeroTrailer(heroData.id);
+
+  console.log(heroTrailer);
+
   return (
     <>
       <section
@@ -48,7 +57,12 @@ const Hero = async () => {
             <div className="rating"></div>
             <p>{shortenText(heroData?.overview, 300)}</p>
             <div>
-              <button>Watch Trailer</button>
+              <a
+                href={`https://www.youtube.com/watch?v=${heroTrailer.key}`}
+                target="_blank"
+              >
+                Watch Trailer
+              </a>
               <Link href={`/movies/${heroData.id}`}>View Details</Link>
             </div>
           </div>
