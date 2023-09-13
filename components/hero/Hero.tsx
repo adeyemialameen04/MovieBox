@@ -1,20 +1,15 @@
-import {
-  IMAGE_BASE_URL,
-  TOP_RATED_URL,
-  UPCOMING_URL,
-  getHeroTrailer,
-  options,
-} from "@/utils/services";
+import { IMAGE_BASE_URL, UPCOMING_URL, getHeroTrailer } from "@/utils/services";
 import styles from "./hero.module.css";
-import { FaImdb } from "react-icons/fa";
-import { GiTomato } from "react-icons/gi";
+// import { FaImdb } from "react-icons/fa";
+// import { GiTomato } from "react-icons/gi";
 import Navbar from "../navbar/Navbar";
 import { shortenText } from "@/utils/constants";
 import Link from "next/link";
 import { MovieCard } from "@/utils/interfaces";
+import { FaRegCirclePlay, FaBook } from "react-icons/fa6";
 
 const getHeroMovie = async () => {
-  const passing = {
+  const options = {
     method: "GET",
     headers: {
       accept: "application/json",
@@ -29,7 +24,7 @@ const getHeroMovie = async () => {
     },
   };
   const randomMovie = Math.floor(Math.random() * 15) + 1;
-  const response = await fetch(UPCOMING_URL, passing);
+  const response = await fetch(UPCOMING_URL, options);
   const data = await response.json();
   const results = data.results;
   return results[randomMovie];
@@ -61,9 +56,11 @@ const Hero = async () => {
                 href={`https://www.youtube.com/watch?v=${heroTrailer.key}`}
                 target="_blank"
               >
-                Watch Trailer
+                <FaRegCirclePlay /> Watch Trailer
               </a>
-              <Link href={`/movies/${heroData.id}`}>View Details</Link>
+              <Link href={`/movies/${heroData.id}`}>
+                <FaBook /> View Details
+              </Link>
             </div>
           </div>
         </div>

@@ -33,7 +33,6 @@
     gap: .7rem;
 }
 
-.hero__container button,
 .hero__container a {
     text-decoration: none;
     background-color: var(--clr-pink);
@@ -48,6 +47,9 @@
     border-radius: .375rem;
     width: fit-content;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
 }
 
 @media(min-width:780px) {
@@ -58,6 +60,6 @@
     }
 
     .hero__container h1 {
-        font-size: 3rem;
+        font-size: 2.4rem;
     }
 }
