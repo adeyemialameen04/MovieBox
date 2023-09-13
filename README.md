@@ -1,4 +1,4 @@
-<!-- # MovieBox
+# MovieBox
 
 MovieBox is a web application built with Next.js 13 and TypeScript that allows users to discover information about movies using the TMDB (The Movie Database) API.
 
@@ -41,11 +41,11 @@ To run this project locally, follow these steps:
    ```
 
 4. Set up your TMDB API key:
-     Visit the TMDB API website to obtain an API key.
-     Create a .env.local file in the root directory of your project.
-     Add your API key to the .env.local file:    -->
+Visit the TMDB API website to obtain an API key.
+Create a .env.local file in the root directory of your project.
+Add your API key to the .env.local file:   
+```env
 
-     ```env
 TMDB_API_KEY=your_api_key_here
 ```
 
