@@ -15,6 +15,10 @@ MovieBox is a web application built with Next.js 13 and TypeScript that allows u
 - View upcoming movies.
 - Watch movie trailers.
 
+## Demo
+
+You can view the live demo of the project [here](https://movie-511yupvep-adeyemialameen101.vercel.app).
+
 ## Technologies Used
 
 - [Next.js 13](https://nextjs.org/)
