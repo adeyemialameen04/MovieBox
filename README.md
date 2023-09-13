@@ -2,11 +2,12 @@
 
 MovieBox is a web application built with Next.js 13 and TypeScript that allows users to discover information about movies using the TMDB (The Movie Database) API.
 
-![MovieBox Screenshot](./screenshot.png)
+![MovieBox Screenshot](/screenshot.png)
 
 ## Current Features
 
 - Search for movies by title.
+- View top rated movies.
 - View movie details, including the title, overview, release date, and more.
 - Watch selected movie trailer.
 
@@ -28,7 +29,7 @@ To run this project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/moviebox.git
+   git clone https://github.com/adeyemialameen04/MovieBox.git
    ```
 
 2. Navigate to the project directory:
