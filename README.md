@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
@@ -31,4 +31,36 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details. -->
+
+# MovieBox
+
+MovieBox is a web application built with Next.js 13 and TypeScript that allows users to discover information about movies using the TMDB (The Movie Database) API.
+
+![MovieBox Screenshot](./screenshot.png)
+
+## Features
+
+- View upcoming movies.
+- Search for movies by title.
+- View movie details, including the title, overview, release date, and more.
+- Watch movie trailers.
+
+## Technologies Used
+
+- [Next.js 13](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TMDB API](https://www.themoviedb.org/documentation/api)
+- [React Icons](https://react-icons.github.io/react-icons/)
+
+## Getting Started
+
+To run this project locally, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/moviebox.git
+
+   ```bash
+   cd moviebox
