@@ -28,7 +28,14 @@
     font-weight: 500;
 }
 
-.hero__container button {
+.hero__container div {
+    display: flex;
+    gap: .7rem;
+}
+
+.hero__container button,
+.hero__container a {
+    text-decoration: none;
     background-color: var(--clr-pink);
     color: var(--clr-white);
     padding-block: .4rem;

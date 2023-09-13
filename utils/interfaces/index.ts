@@ -5,6 +5,7 @@ export interface MovieCard {
     name: string
     id: number
     release_date: string
+    overview: string
 }
 
 export interface MoviesList {
