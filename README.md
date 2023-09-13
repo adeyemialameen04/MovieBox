@@ -62,5 +62,20 @@ To run this project locally, follow these steps:
    ```bash
    git clone https://github.com/your-username/moviebox.git
    ```
-   
+
+2. Navigate to the project directory:
+   ```bash  
    cd moviebox
+   ```
+
+3. Install dependencies:
+   ```bash  
+   npm install
+   # or
+   yarn install
+   ```
+
+4. Set up your TMDB API key:
+     Visit the TMDB API website to obtain an API key.
+     Create a .env.local file in the root directory of your project.
+     Add your API key to the .env.local file:   
