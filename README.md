@@ -2,7 +2,7 @@
 
 MovieBox is a web application built with Next.js 13 and TypeScript that allows users to discover information about movies using the TMDB (The Movie Database) API.
 
-![MovieBox Screenshot](/screenshot.png)
+![MovieBox Screenshot](./public/screenshot.png)
 
 ## Current Features
 
