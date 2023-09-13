@@ -37,15 +37,15 @@ const MovieDetail = ({ movie }: MovieDetailProps) => {
           <div className={left}>
             <div className={info}>
               <div>
-                <p>
+                <p data-testid="movie-title">
                   <span className={bullet}></span>
                   {movie.title}
                 </p>
-                <p>
+                <p data-testid="movie-release-date">
                   <span className={bullet}></span>
                   {formatToUtcDate(movie.release_date)}
                 </p>
-                <p>
+                <p data-testid="movie-runtime">
                   <span className={bullet}></span>
                   {movie.runtime} minutes
                 </p>
@@ -56,7 +56,9 @@ const MovieDetail = ({ movie }: MovieDetailProps) => {
                 ))}
               </div>
             </div>
-            <div className={overview}>{movie.overview}</div>
+            <div className={overview} data-testid="movie-overview">
+              {movie.overview}
+            </div>
             <div className={minor__info}>
               <p>
                 Tagline: <span>{movie.tagline}</span>

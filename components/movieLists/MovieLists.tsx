@@ -1,11 +1,11 @@
 import styles from "./movieLists.module.css";
-import { TRENDING_URL } from "@/utils/services";
+import { TOP_RATED_URL } from "@/utils/services";
 import { options } from "@/utils/services";
 import { MoviesList, MovieCard } from "@/utils/interfaces";
 import Card from "../card/Card";
 
 const getTrending = async () => {
-  const response = await fetch(TRENDING_URL, options);
+  const response = await fetch(TOP_RATED_URL, options);
   const data: MoviesList = await response.json();
   const results = data.results;
   return results;
