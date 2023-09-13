@@ -1,5 +1,3 @@
-export const ACCESS_TOKEN = process.env.TMBD_ACCESS_TOKEN_AUTH!
-
 export const formatDate = (inputDate: string) => {
     const dateObj = new Date(inputDate);
 
