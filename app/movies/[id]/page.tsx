@@ -20,7 +20,6 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  // read route params
   const id = params.id;
 
   const response = await fetch(GET_MOVIE_DETAILS(Number(id)), options);
