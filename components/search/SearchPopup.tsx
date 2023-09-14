@@ -33,7 +33,10 @@ const SearchPopup = () => {
   const searchMovies = async () => {
     setLoading(true);
     try {
-      const response = await fetch(SEARCH_URL(searchQuery), options);
+      // const response = await fetch(SEARCH_URL(searchQuery), options);
+      const response = await fetch(
+        `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=1&api_key=${process.env.TMBD_ACCESS_TOKEN_AUTH}`
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -58,6 +61,9 @@ const SearchPopup = () => {
   useEffect(() => {
     if (searchQuery.trim() !== "") {
       searchMovies();
+    }
+    if (error) {
+      console.log(error);
     }
   }, [searchQuery]);
 

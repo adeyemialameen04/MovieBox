@@ -3,13 +3,31 @@ import styles from "./movieDetail.module.css";
 import { MovieDetail } from "@/utils/interfaces";
 import { formatDate, formatToUtcDate } from "@/utils/constants";
 import { FaWandMagic, FaFilm } from "react-icons/fa6";
-import { IMAGE_BASE_URL } from "@/utils/services";
+import { IMAGE_BASE_URL, TRAILER_URL, options } from "@/utils/services";
+import ReactPlayer from "react-player/youtube";
 
 type MovieDetailProps = {
   movie: MovieDetail;
 };
 
-const MovieDetail = ({ movie }: MovieDetailProps) => {
+const getMovieTrailer = async (movieId: number) => {
+  try {
+    const response = await fetch(TRAILER_URL(movieId), options);
+    const data = await response.json();
+    const videos = data.results;
+    const trailer =
+      videos &&
+      videos.find(
+        ({ type, site }: { type: string; site: string }) =>
+          type === "Trailer" && site === "YouTube"
+      );
+    return trailer;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const MovieDetail = async ({ movie }: MovieDetailProps) => {
   const {
     main__details,
     main__container,
@@ -25,7 +43,15 @@ const MovieDetail = ({ movie }: MovieDetailProps) => {
     best,
   } = styles;
 
-  console.log(movie);
+  const trailer = await getMovieTrailer(movie.id);
+
+  console.log();
+
+  const trailerUrl = `https://www.youtube.com/watch?v=${
+    trailer && trailer.key
+  }`;
+
+  console.log(trailerUrl);
 
   return (
     <section className={main__details}>
@@ -47,7 +73,7 @@ const MovieDetail = ({ movie }: MovieDetailProps) => {
                 </p>
                 <p data-testid="movie-runtime">
                   <span className={bullet}></span>
-                  {movie.runtime} minutes
+                  {movie.runtime}
                 </p>
               </div>
               <div className={genres}>
@@ -58,6 +84,7 @@ const MovieDetail = ({ movie }: MovieDetailProps) => {
             </div>
             <div className={overview} data-testid="movie-overview">
               {movie.overview}
+              <p>{trailerUrl}</p>
             </div>
             <div className={minor__info}>
               <p>

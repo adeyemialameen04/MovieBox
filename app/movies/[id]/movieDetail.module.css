@@ -64,8 +64,8 @@
 }
 
 .genres span {
-    padding-block: .3rem;
-    padding-inline: .9rem;
+    padding-block: .2rem;
+    padding-inline: .5rem;
     border-radius: 100vh;
     font-size: 0.8rem;
     color: rgb(244 63 94);

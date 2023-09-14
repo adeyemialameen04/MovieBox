@@ -24,4 +24,5 @@ export interface MovieDetail {
     overview: string
     tagline: string
     status: string
+    id: number
 }
