@@ -6,6 +6,7 @@ export interface MovieCard {
     id: number
     release_date: string
     overview: string
+    vote_average: number
 }
 
 export interface MoviesList {

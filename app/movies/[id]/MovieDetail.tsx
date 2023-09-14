@@ -10,23 +10,6 @@ type MovieDetailProps = {
   movie: MovieDetail;
 };
 
-const getMovieTrailer = async (movieId: number) => {
-  try {
-    const response = await fetch(TRAILER_URL(movieId), options);
-    const data = await response.json();
-    const videos = data.results;
-    const trailer =
-      videos &&
-      videos.find(
-        ({ type, site }: { type: string; site: string }) =>
-          type === "Trailer" && site === "YouTube"
-      );
-    return trailer;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 const MovieDetail = async ({ movie }: MovieDetailProps) => {
   const {
     main__details,
@@ -43,15 +26,7 @@ const MovieDetail = async ({ movie }: MovieDetailProps) => {
     best,
   } = styles;
 
-  const trailer = await getMovieTrailer(movie.id);
-
-  console.log();
-
-  const trailerUrl = `https://www.youtube.com/watch?v=${
-    trailer && trailer.key
-  }`;
-
-  console.log(trailerUrl);
+  console.log(movie);
 
   return (
     <section className={main__details}>
@@ -84,7 +59,6 @@ const MovieDetail = async ({ movie }: MovieDetailProps) => {
             </div>
             <div className={overview} data-testid="movie-overview">
               {movie.overview}
-              <p>{trailerUrl}</p>
             </div>
             <div className={minor__info}>
               <p>

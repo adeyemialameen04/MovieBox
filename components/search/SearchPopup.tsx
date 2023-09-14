@@ -6,10 +6,11 @@ import Logo from "/public/Logo.png";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaTimes } from "react-icons/fa";
 import { SearchContext } from "@/context/SearchContext";
-import { IMAGE_BASE_URL, SEARCH_URL, options } from "@/utils/services";
+import { IMAGE_BASE_URL, SEARCH_URL } from "@/utils/services";
 import { MovieCard, MoviesList } from "@/utils/interfaces";
 import Loader from "../loader/Loader";
 import Link from "next/link";
+import axios from "axios";
 
 const SearchPopup = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -32,15 +33,24 @@ const SearchPopup = () => {
 
   const searchMovies = async () => {
     setLoading(true);
+    const newOptions = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${
+          process.env.TMBD_ACCESS_TOKEN_AUTH ??
+          "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZTA3Nzc1MWRmYmQxYmFjZDcwMDAzZmYyNzUxODg2YyIsInN1YiI6IjYzZGQzYjExY2U1ZDgyMDA4NDhjNzc5ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.a5Z2ljr4fG3Nmoc1R2U0MgiEvz-E49MPNsmwbHZIv8A"
+        }`,
+      },
+      next: {
+        revalidate: 0,
+        cache: "no-store",
+      },
+    };
+
     try {
-      // const response = await fetch(SEARCH_URL(searchQuery), options);
-      const response = await fetch(
-        `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=1&api_key=${process.env.TMBD_ACCESS_TOKEN_AUTH}`
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const data: MoviesList = await response.json();
+      const response = await axios.get(SEARCH_URL(searchQuery), newOptions);
+      const data: MoviesList = await response.data;
       const results = data.results;
       setDataResults(results);
       setError(false);
@@ -65,6 +75,8 @@ const SearchPopup = () => {
     if (error) {
       console.log(error);
     }
+
+    console.log("Auth Key", process.env.NEXT_PUBLIC_TMBD_ACCESS_TOKEN_AUTH);
   }, [searchQuery]);
 
   return (

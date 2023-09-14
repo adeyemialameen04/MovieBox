@@ -52,6 +52,16 @@
     gap: .4rem;
 }
 
+.rating {
+    display: flex;
+    gap: .7rem;
+}
+
+.rating div {
+    display: flex;
+    align-items: center;
+}
+
 @media(min-width:780px) {
     .hero__container {
         max-width: 50%;
