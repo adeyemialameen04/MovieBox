@@ -64,6 +64,14 @@
 
 .input__container input {
     width: 100%;
+    height: 40px;
+    border-radius: 100dvh;
+    padding-left: 10px;
+    border: 1px solid var(--clr-gray);
+}
+
+.input__container input:focus-visible {
+    outline: 2px solid var(--clr-pink);
 }
 
 .popup {

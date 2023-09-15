@@ -16,7 +16,7 @@ const SearchPopup = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const { isSearch, handleToggleSearch } = useContext(SearchContext);
   const [dataResults, setDataResults] = useState<MovieCard[] | null>(null);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<boolean | null>(false);
   const [loading, setLoading] = useState(false);
   const {
     popup__container,
@@ -37,10 +37,7 @@ const SearchPopup = () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization: `Bearer ${
-          process.env.TMBD_ACCESS_TOKEN_AUTH ??
-          "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZTA3Nzc1MWRmYmQxYmFjZDcwMDAzZmYyNzUxODg2YyIsInN1YiI6IjYzZGQzYjExY2U1ZDgyMDA4NDhjNzc5ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.a5Z2ljr4fG3Nmoc1R2U0MgiEvz-E49MPNsmwbHZIv8A"
-        }`,
+        Authorization: `Bearer ${process.env.TMBD_ACCESS_TOKEN_AUTH}`,
       },
       next: {
         revalidate: 0,
@@ -49,6 +46,10 @@ const SearchPopup = () => {
     };
 
     try {
+      if (searchQuery === "") {
+        setDataResults(null);
+        setError(null);
+      }
       const response = await axios.get(SEARCH_URL(searchQuery), newOptions);
       const data: MoviesList = await response.data;
       const results = data.results;
@@ -75,8 +76,6 @@ const SearchPopup = () => {
     if (error) {
       console.log(error);
     }
-
-    console.log("Auth Key", process.env.NEXT_PUBLIC_TMBD_ACCESS_TOKEN_AUTH);
   }, [searchQuery]);
 
   return (

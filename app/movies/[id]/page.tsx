@@ -3,6 +3,8 @@ import MovieDetail from "./MovieDetail";
 import Sidebar from "./Sidebar";
 import styles from "./page.module.css";
 import type { Metadata, ResolvingMetadata } from "next";
+import { Suspense } from "react";
+import Loading from "@/app/loading";
 
 type Props = {
   params: { id: string };
@@ -38,7 +40,6 @@ export async function generateMetadata(
 const getMovieDetailsWithMovieId = async (id: number) => {
   const response = await fetch(GET_MOVIE_DETAILS(id), options);
   const data = await response.json();
-  console.log(data);
   return data;
 };
 
@@ -51,7 +52,9 @@ const MovieDetailsPage = async ({ params }: MovieDetailsPageProps) => {
     return (
       <main className={main}>
         <Sidebar />
-        <MovieDetail movie={movie} />
+        <Suspense fallback={<Loading />}>
+          <MovieDetail movie={movie} />
+        </Suspense>
       </main>
     );
   } catch (error) {
