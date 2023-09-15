@@ -3,6 +3,8 @@ import MovieDetail from "./MovieDetail";
 import Sidebar from "./Sidebar";
 import styles from "./page.module.css";
 import type { Metadata, ResolvingMetadata } from "next";
+import { Suspense } from "react";
+import Loading from "@/app/loading";
 
 type Props = {
   params: { id: string };
@@ -50,7 +52,9 @@ const MovieDetailsPage = async ({ params }: MovieDetailsPageProps) => {
     return (
       <main className={main}>
         <Sidebar />
-        <MovieDetail movie={movie} />
+        <Suspense fallback={<Loading />}>
+          <MovieDetail movie={movie} />
+        </Suspense>
       </main>
     );
   } catch (error) {
