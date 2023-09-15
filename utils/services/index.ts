@@ -14,6 +14,7 @@ export const TRAILER_URL = (id: number) => `${TMDB_API_BASE_URL}/movie/${id}/vid
 export const TOP_RATED_URL = `${TMDB_API_BASE_URL}/movie/top_rated?language=en-US&page=1`
 export const UPCOMING_URL = `${TMDB_API_BASE_URL}/movie/upcoming?language=en-US&page=1`
 export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original"
+// export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/1280"
 export const CAST_URL = (movieId: number) => `${TMDB_API_BASE_URL}/movie/${movieId}/credits?language=en-US`
 
 export const getHeroTrailer = async (movieId: number) => {
