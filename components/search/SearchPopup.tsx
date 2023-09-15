@@ -37,7 +37,10 @@ const SearchPopup = () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMBD_ACCESS_TOKEN_AUTH}`,
+        Authorization: `Bearer ${
+          process.env.NEXT_PUBLIC_TMBD_ACCESS_TOKEN_AUTH ??
+          "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZTA3Nzc1MWRmYmQxYmFjZDcwMDAzZmYyNzUxODg2YyIsInN1YiI6IjYzZGQzYjExY2U1ZDgyMDA4NDhjNzc5ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.a5Z2ljr4fG3Nmoc1R2U0MgiEvz-E49MPNsmwbHZIv8A"
+        }`,
       },
       next: {
         revalidate: 0,
