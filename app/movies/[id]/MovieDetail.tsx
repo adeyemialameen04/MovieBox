@@ -1,16 +1,31 @@
 import Image from "next/image";
 import styles from "./movieDetail.module.css";
-import { MovieDetail } from "@/utils/interfaces";
-import { formatDate, formatToUtcDate } from "@/utils/constants";
+import { CastCard, MovieDetail } from "@/utils/interfaces";
+import { formatToUtcDate } from "@/utils/constants";
 import { FaWandMagic, FaFilm } from "react-icons/fa6";
-import { IMAGE_BASE_URL, TRAILER_URL, options } from "@/utils/services";
-import ReactPlayer from "react-player/youtube";
+import {
+  CAST_URL,
+  IMAGE_BASE_URL,
+  TRAILER_URL,
+  options,
+} from "@/utils/services";
 
 type MovieDetailProps = {
   movie: MovieDetail;
 };
 
+const getCastsData = async (id: number) => {
+  try {
+    const response = await fetch(CAST_URL(id), options);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const MovieDetail = async ({ movie }: MovieDetailProps) => {
+  const castsInfo = await getCastsData(movie.id);
   const {
     main__details,
     main__container,
@@ -24,9 +39,31 @@ const MovieDetail = async ({ movie }: MovieDetailProps) => {
     bullet,
     minor__info,
     best,
+    casts,
   } = styles;
 
-  console.log(movie);
+  // console.log("casts", castsInfo.cast);
+
+  function findDirector() {
+    const director = castsInfo.crew.filter(
+      (crewMember: CastCard) => crewMember.department === "Directing"
+    );
+    if (director) {
+      return director;
+    } else {
+      return "Director not found"; // You can handle this case accordingly
+    }
+  }
+  function findWriters() {
+    const director = castsInfo.crew.filter(
+      (crewMember: CastCard) => crewMember.department === "Writing"
+    );
+    if (director) {
+      return director;
+    } else {
+      return "Director not found"; // You can handle this case accordingly
+    }
+  }
 
   return (
     <section className={main__details}>
@@ -69,6 +106,30 @@ const MovieDetail = async ({ movie }: MovieDetailProps) => {
                 <span>
                   {movie.status === "Released" ? "Released" : "Not Released"}
                 </span>
+              </p>
+            </div>
+            <div className={casts}>
+              <p>
+                Stars:{" "}
+                <span>
+                  {castsInfo &&
+                    castsInfo.cast
+                      .slice(0, 3)
+                      .map((star: CastCard) => star.name)
+                      .join(", ")}
+                </span>
+              </p>
+              <p>
+                Director(s):{" "}
+                {findDirector().map((director: any) => (
+                  <span>{director.name}, </span>
+                ))}
+              </p>
+              <p>
+                Writer(s):{" "}
+                {findWriters().map((writer: any) => (
+                  <span>{writer.name}, </span>
+                ))}
               </p>
             </div>
           </div>

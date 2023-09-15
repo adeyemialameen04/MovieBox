@@ -27,3 +27,9 @@ export interface MovieDetail {
     status: string
     id: number
 }
+
+export interface CastCard {
+    name: string
+    job: string
+    department: string
+}

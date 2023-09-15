@@ -168,6 +168,18 @@
     background-color: hsl(220, 9%, 46%);
 }
 
+.casts {}
+
+.casts p {
+    color: rgb(107 114 128);
+    font-weight: 700;
+}
+
+.casts p span {
+    color: var(--clr-pink);
+    font-weight: 500;
+}
+
 @media(max-width:305px) {
     .info p {
         font-size: 0.9rem;

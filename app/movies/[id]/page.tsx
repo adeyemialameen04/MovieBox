@@ -38,7 +38,6 @@ export async function generateMetadata(
 const getMovieDetailsWithMovieId = async (id: number) => {
   const response = await fetch(GET_MOVIE_DETAILS(id), options);
   const data = await response.json();
-  console.log(data);
   return data;
 };
 

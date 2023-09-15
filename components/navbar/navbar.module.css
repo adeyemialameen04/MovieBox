@@ -62,17 +62,17 @@
     width: 100%;
     outline: none;
     height: 45px;
-    border: 2px solid var(--clr-white);
+    border: 1px solid var(--clr-white);
     background-color: transparent;
     border-radius: .375rem;
     padding-left: .6rem;
-    font-size: 1.2rem;
+    font-size: .9rem;
     color: var(--clr-white);
 }
 
 .search__icon {
     position: absolute;
-    top: 10px;
+    top: 12px;
     right: 3%;
     font-size: 1.3rem;
 }
@@ -87,35 +87,32 @@
         order: 3;
     }
 
+    .input__container {
+        width: 100%;
+    }
+
+    .logo__container span {
+        display: none;
+    }
+
+    .logo {
+        height: 34px;
+        width: 34px;
+    }
+
     .nav__container {
-        flex-direction: column;
-        align-items: start;
         gap: 0.8rem;
     }
 
     .right {
         align-self: flex-end;
         order: 2;
-    }
-
-    .right button {
         display: none;
     }
 
     .left {
-        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
-
-    .right p {
-        display: none;
-    }
-
-    .left__sign__in {
-        display: block;
-        font-weight: 600;
-        font-size: 1.1rem;
     }
 }

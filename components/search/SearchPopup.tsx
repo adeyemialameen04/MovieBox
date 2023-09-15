@@ -16,7 +16,7 @@ const SearchPopup = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const { isSearch, handleToggleSearch } = useContext(SearchContext);
   const [dataResults, setDataResults] = useState<MovieCard[] | null>(null);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<boolean | null>(false);
   const [loading, setLoading] = useState(false);
   const {
     popup__container,
@@ -49,6 +49,10 @@ const SearchPopup = () => {
     };
 
     try {
+      if (searchQuery === "") {
+        setDataResults(null);
+        setError(null);
+      }
       const response = await axios.get(SEARCH_URL(searchQuery), newOptions);
       const data: MoviesList = await response.data;
       const results = data.results;

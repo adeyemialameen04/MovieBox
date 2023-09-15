@@ -28,7 +28,6 @@ const Navbar = () => {
             </div>
             <span>MovieBox</span>
           </div>
-          <div className={left__sign__in}>Sign in</div>
         </div>
         <Search
           input__container={input__container}
