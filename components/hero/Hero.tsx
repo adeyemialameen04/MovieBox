@@ -38,8 +38,6 @@ const Hero = async () => {
   const heroData: MovieCard = await getHeroMovie();
   const heroTrailer = await getHeroTrailer(heroData.id);
 
-  console.log(heroTrailer);
-
   return (
     <>
       <section

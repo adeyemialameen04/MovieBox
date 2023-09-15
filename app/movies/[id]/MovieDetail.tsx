@@ -9,6 +9,7 @@ import {
   TRAILER_URL,
   options,
 } from "@/utils/services";
+import { RiPlayCircleLine } from "react-icons/ri";
 
 type MovieDetailProps = {
   movie: MovieDetail;
@@ -40,9 +41,9 @@ const MovieDetail = async ({ movie }: MovieDetailProps) => {
     minor__info,
     best,
     casts,
+    watch__trailer,
+    watch__icon,
   } = styles;
-
-  // console.log("casts", castsInfo.cast);
 
   function findDirector() {
     const director = castsInfo.crew.filter(
@@ -68,8 +69,17 @@ const MovieDetail = async ({ movie }: MovieDetailProps) => {
   return (
     <section className={main__details}>
       <div className={`${main__container}`}>
-        <div className={img__container}>
-          <Image fill alt="" src={`${IMAGE_BASE_URL}${movie.backdrop_path}`} />
+        <div
+          style={{
+            backgroundImage: `url(${IMAGE_BASE_URL}${movie.backdrop_path})`,
+          }}
+          className={img__container}
+        >
+          <div className={watch__trailer}>
+            <RiPlayCircleLine className={watch__icon} />
+            Watch Trailer
+          </div>
+          {/* <Image fill alt="" src={`${IMAGE_BASE_URL}${movie.backdrop_path}`} /> */}
         </div>
         <div className={grid}>
           <div className={left}>
@@ -121,14 +131,14 @@ const MovieDetail = async ({ movie }: MovieDetailProps) => {
               </p>
               <p>
                 Director(s):{" "}
-                {findDirector().map((director: any) => (
-                  <span>{director.name}, </span>
+                {findDirector().map((director: any, index: number) => (
+                  <span key={index}>{director.name}, </span>
                 ))}
               </p>
               <p>
                 Writer(s):{" "}
-                {findWriters().map((writer: any) => (
-                  <span>{writer.name}, </span>
+                {findWriters().map((writer: any, index: number) => (
+                  <span key={index}>{writer.name}, </span>
                 ))}
               </p>
             </div>

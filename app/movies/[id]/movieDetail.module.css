@@ -1,12 +1,13 @@
+.main__details {
+    color: var(--clr-black);
+}
+
 .grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
 }
 
-.main__details {
-    color: var(--clr-black);
-}
 
 .main__container {
     padding-right: 1rem;
@@ -19,9 +20,36 @@
 
 .img__container {
     position: relative;
+    background-size: cover;
+    background-position: center;
     width: 100%;
-    height: 480px;
+    height: 450px;
     overflow: hidden;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img__container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #000000b3;
+    z-index: -1;
+}
+
+.watch__trailer {
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.watch__icon {
+    font-size: 2rem;
 }
 
 .img__container img {
@@ -168,16 +196,22 @@
     background-color: hsl(220, 9%, 46%);
 }
 
-.casts {}
+.casts {
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+}
 
 .casts p {
     color: rgb(107 114 128);
     font-weight: 700;
+    font-size: 1.1rem;
 }
 
 .casts p span {
     color: var(--clr-pink);
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
 @media(max-width:305px) {
