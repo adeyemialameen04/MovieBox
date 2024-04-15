@@ -28,7 +28,7 @@ const Footer = () => {
           &copy;{""}
           {year}
           {""} {""} {""}
-          MovieBox by Al-ameen Adeyemi
+          MovieBox by Kelvin Mhodi
         </div>
       </div>
     </footer>
